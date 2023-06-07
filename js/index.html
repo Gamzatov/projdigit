@@ -1,0 +1,185 @@
+<link href="./css/validation.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/intlTelInput.min.css">
+
+<script type="application/javascript">
+    function getCookie(name) {
+        var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+        return v ? v[2] : null;
+    }
+
+    function setCookie(name, value, days) {
+        var d = new Date;
+        d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+        document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+    }
+
+    function getSubId() {
+        var params = new URLSearchParams(document.location.search.substr(1));
+        if (!'{subid}'.match('{')) {
+            return '{subid}';
+        }
+        var clientSubid = '<?php echo isset($client) ? $client->getSubid() : "" ?>';
+        if (clientSubid && !clientSubid.match('>')) {
+            return clientSubid;
+        }
+        if (params.get('_subid')) {
+            return params.get('_subid')
+        }
+        if (params.get('subid')) {
+            return params.get('subid')
+        }
+        if (getCookie('subid')) {
+            return getCookie('subid');
+        }
+    }
+
+    function getToken() {
+        var params = new URLSearchParams(document.location.search.substr(1));
+        if (!'{token}'.match('{')) {
+            return '{token}';
+        }
+        var clientToken = '<?php echo isset($client) ? $client->getToken() : "" ?>';
+        if (clientToken && !clientToken.match('>')) {
+            return clientToken;
+        }
+        if (params.get('_token')) {
+            return params.get('_token')
+        }
+        if (params.get('token')) {
+            return params.get('token')
+        }
+        if (getCookie('token')) {
+            return getCookie('token');
+        }
+        return null;
+    }
+
+    function getPixel() {
+        var params = new URLSearchParams(document.location.search.substr(1));
+        if (!'{p}'.match('{')) {
+            return '{p}';
+        }
+        if (params.get('p')) {
+            return params.get('p')
+        }
+
+        if (getCookie('p')) {
+            return getCookie('p');
+        }
+
+        return null;
+    }
+
+    if (typeof URLSearchParams === 'function') {
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var params = new URLSearchParams(document.location.search.substr(1));
+            var subid = getSubId();
+            var token = getToken();
+            var p = getPixel();
+
+            params.set('_token', token);
+            setCookie('p', p);
+            setCookie('token', token);
+            setCookie('subid', subid);
+
+            // Adds params to the links  
+            document.querySelectorAll('a').forEach(function (link) {
+                var url = new URL(link.href);
+                params.forEach(function (v, k) {
+                    url.searchParams.append(k, v);
+                });
+                // link.href = url.toString();
+            });
+
+            // Adds params as hidden inputs to the forms
+            document.querySelectorAll('form').forEach(function (form) {
+                params.forEach(function (v, k) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = k;
+                    input.value = v;
+
+                    form.append(input);
+                });
+            });
+        })
+    }
+
+</script>
+<meta name="referrer" content="no-referrer">
+<script>
+    ! function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', getPixel());
+    fbq('track', 'PageView');
+</script>
+
+
+
+<div class="form">
+<form action="./thanks/index.php" method="post">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Let's create your account!</div>
+    <div class="input-container ic1">
+        <input " name="f_name" class="input" type="text" placeholder="First name" required />
+    </div>
+    <div class="input-container ic2">
+        <input name="l_name" class="input" type="text" placeholder="Last name" required />
+    </div>
+    <div class="input-container ic2">
+        <input name="email" name="email" class="input" type="email" placeholder="Email" required />
+        <span id="invalidEmail" class="invalidEmail">Укажите, пожалуйста, корректный email</span>
+    </div>
+    <div class="input-container ic2">
+        <input type="tel" name="phone_raw" id="phone" class="form-control input mask" placeholder="Phone Number" data-not-remember
+            required>
+        <input type="hidden" name="phone" data-not-remember />
+        <!-- <p id="validPhone" class="validPhone">Верный</p> -->
+        <span id="invalidPhone" class="invalidPhone">Введите правильный номер телефона</span>
+        <style>
+            .invalidPhone,
+            .invalidEmail {
+                display: none;
+                color: red;
+                font-size: 13px;
+            }
+        </style>
+        <?php $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+        <input type="hidden" name="site" value="<?php echo $actual_link ?>">
+        <input type="hidden" name="pixel_id" value="<?php echo $_GET['p'] ?>">
+        <!-- <div class="cut cut-short"></div> -->
+    </div>
+    <button id="btn" type="submit" class="submit">submit</button>
+</form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/input_mask.js"></script>
+<script defer>
+    window.serverProps = {
+        oldInputs: null,
+        validationErrors: null,
+        server_error_code: null,
+        frod_autologin_url: null
+    };
+</script>
+<script src="./js/validation.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput-jquery.js"></script>
