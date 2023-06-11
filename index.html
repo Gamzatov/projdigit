@@ -11,14 +11,15 @@
 </head>
 
 <body>
-    <div id="header-nav">
-        <div class="container" style="padding: 0;">
+    <nav>
+        <div class="container nav_container" style="padding: 0;">
             <!-- H1 for SEO -->
             <div class="brand">
                 <a href="./index.html">
                     <img src="./du.svg" style="max-width: 40px;" alt="">
                 </a>
             </div>
+           
             <!-- Small screen menu button -->
             <a href="#menu" class="menu-link">
                 <span class="bar1"></span>
@@ -26,20 +27,29 @@
                 <span class="bar3"></span>
             </a>
             <!-- /Small screen menu button -->
-
+     
             <!-- Menu Items -->
             <nav id="menu" role="navigation">
                 <ul>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./projects.html">projects</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="./index.html">Join Us</a></li>
-                    <li class="donateBtn "><button href="./index.html" onclick="show()" class="btn">Donate</button></li>
+                    <li>
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn lang_incon ua"></button>
+                            <div id="myDropdown" class="dropdown-content">
+                              <a class="lang_incon usa" href="./en/index.html"></a>
+                            </div>
+                          </div> 
+                    </li>
+                    <li><a href="./about.html">Про нас</a></li>
+                    <li><a href="./projects.html">Проекти</a></li>
+                    <li><a href="./contact.html">Контакти</a></li>
+                    <li><a href="./index.html">Приєднатися</a></li>
+                    <li class="donateBtn "><button href="./index.html" onclick="show()" class="btn">Задонатити</button></li>
+                  
                 </ul>
             </nav>
             <!-- /Menu Items -->
         </div>
-    </div>
+    </nav>
     <!-- /Menu -->
 
     <!-- /Nav element -->
@@ -49,17 +59,17 @@
         <div class="container">
             <div class="sticky_box">
                 <p>
-                    Thousands of Ukrainians have suffered life-changing injuries, wounded at the battlefield and at the
-                    streets of their cities.
+                    Тисячі українців зазнали поранень, які змінили їхнє життя, були поранені на полі бою та на вулицях їхніх міст.
+                    на вулицях своїх міст.
                 </p>
                 <p>
 
-                    We are launching a modern war victim rehabilitation center for adults and children in Ukraine, to
-                    give these people a superhero life they deserve.
+                    Ми відкриваємо в Україні сучасний центр реабілітації для дорослих та дітей, які постраждали від війни, щоб
+                    дати цим людям супергеройське життя, на яке вони заслуговують.
                 </p>
                 <div class="btn_wrapper">
-                    <button class="btn">
-                        TEXT
+                    <button onclick="show()" class="btn">
+                        Допомогти
                     </button>
 
                 </div>
@@ -78,14 +88,14 @@
                 <div class="donate_inner">
                     <div class="donate_title">
                         <p class="title">
-                            To make a donation
+                            Зробити пожертву
                         </p>
                         <p class="subtitle">
-                            If you are inspired with the project and wish to become our donor, please, donate an amount
-                            you are comfortable with.
+                            Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка, пожертвуйте суму
+                            яку ви вважаєте за потрібне.
                         </p>
                         <p class="add_info">
-                            By making a donation, you accept our <a href="./index.html"> privacy policy.</a>
+                            Здійснюючи пожертву, ви приймаєте наші <a href="./index.html">політику конфіденційності.</a>
                         </p>
                     </div>
 
@@ -94,17 +104,17 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button id="accordion-button-1" aria-expanded="true"><span
-                                            class="accordion-title">Donate form</span><span class="icon"
+                                            class="accordion-title">Форма для пожертви</span><span class="icon"
                                             aria-hidden="true"></span></button>
                                     <div class="accordion-content">
                                         <div class="donate_form">
                                             <form>
                                                 <div class="form_sect">
                                                     <div class="group">
-                                                        <input type="text" required placeholder="Name">
+                                                        <input type="text" required placeholder="Ім'я">
                                                     </div>
                                                     <div class="group">
-                                                        <input type="text" required placeholder="Last name">
+                                                        <input type="text" required placeholder="Прізвище">
                                                     </div>
                                                 </div>
                                                 <div class="form_sect">
@@ -113,30 +123,30 @@
                                                     </div>
                                                     <div class="group">
                                                         <input type="text" required
-                                                            placeholder="Enter the amount you wish to donate:">
+                                                            placeholder="Введіть суму, яку ви хочете пожертвувати:">
                                                         <label></label>
                                                     </div>
                                                 </div>
-                                                <input type="submit" class="btn" value="DONATE" />
+                                                <input type="submit" class="btn" value="Задонатити" />
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="accordion-item">
                                     <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
+                                            class="accordion-title">  Банківський переказ у
                                             USD</span><span class="icon" aria-hidden="true"></span></button>
                                     <div class="accordion-content">
                                         <div class="req_items">
                                             <p>
                                                 <strong>
-                                                    Account Number:
+                                                    Номер рахунку:
                                                 </strong>
                                                 3810 4683 7192
                                             </p>
                                             <p>
                                                 <b>
-                                                    ACH Routing Number:
+                                                    Номер маршруту ACH:
                                                 </b>
                                                 021200339
                                             </p>
@@ -144,7 +154,7 @@
                                                 <b>
                                                     Account name:
                                                 </b>
-                                                digitalukraine UKRAINE. INC
+                                                DigitalUkraine UKRAINE. INC
                                             </p>
 
                                             <p>
@@ -155,13 +165,13 @@
                                             </p>
                                             <p>
                                                 <b>
-                                                    Name of the bank:
+                                                    Назва банку:
                                                 </b>
                                                 Bank of America, NA
                                             </p>
                                             <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
+                                                DigitalUkraine Ukraine INC звільнена від сплати федерального податку на прибуток в рамках IRC
+                                                Розділ
                                                 501 (c) (3)
                                             </p>
                                         </div>
@@ -169,13 +179,12 @@
                                 </div>
                                 <div class="accordion-item">
                                     <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
+                                            class="accordion-title">WIRE - Переказ</span><span class="icon" aria-hidden="true"></span></button>
                                     <div class="accordion-content">
                                         <div class="req_items">
                                             <p>
                                                 <strong>
-                                                    Account Number:
+                                                    Номер рахунку:
                                                 </strong>
                                                 3810 4683 7192
                                             </p>
@@ -189,7 +198,7 @@
                                                 <b>
                                                     Account name:
                                                 </b>
-                                                digitalukraine UKRAINE. INC
+                                                DigitalUkraine UKRAINE. INC
                                             </p>
 
                                             <p>
@@ -200,108 +209,19 @@
                                             </p>
                                             <p>
                                                 <b>
-                                                    Name of the bank:
+                                                    Назва банку:
                                                 </b>
                                                 Bank of America, NA
                                             </p>
                                             <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
+                                                DigitalUkraine Ukraine INC exempt from federal income tax under IRC
                                                 Section
                                                 501 (c) (3)
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
-                                    <div class="accordion-content">
-                                        <div class="req_items">
-                                            <p>
-                                                <strong>
-                                                    Account Number:
-                                                </strong>
-                                                3810 4683 7192
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    ACH Routing Number:
-                                                </b>
-                                                021200339
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Account name:
-                                                </b>
-                                                digitalukraine UKRAINE. INC
-                                            </p>
-
-                                            <p>
-                                                <b>
-                                                    SWIFT:
-                                                </b>
-                                                BOFAUS3N
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Name of the bank:
-                                                </b>
-                                                Bank of America, NA
-                                            </p>
-                                            <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
-                                                501 (c) (3)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
-                                    <div class="accordion-content">
-                                        <div class="req_items">
-                                            <p>
-                                                <strong>
-                                                    Account Number:
-                                                </strong>
-                                                3810 4683 7192
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    ACH Routing Number:
-                                                </b>
-                                                021200339
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Account name:
-                                                </b>
-                                                digitalukraine UKRAINE. INC
-                                            </p>
-
-                                            <p>
-                                                <b>
-                                                    SWIFT:
-                                                </b>
-                                                BOFAUS3N
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Name of the bank:
-                                                </b>
-                                                Bank of America, NA
-                                            </p>
-                                            <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
-                                                501 (c) (3)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -329,7 +249,7 @@
         </div>
     </section> -->
     <section class="grid_layer">
-        <h1 style="text-align: center;">We care about everyone!</h1>
+        <h1 style="text-align: center;">Ми дбаємо про кожного!</h1>
         <hr>
    
         <main class="main">
@@ -493,14 +413,14 @@
                 <div class="donate_inner">
                     <div class="donate_title">
                         <p class="title">
-                            To make a donation
+                            Задонатити
                         </p>
                         <p class="subtitle">
-                            If you are inspired with the project and wish to become our donor, please, donate an amount
-                            you are comfortable with.
+                            Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка, пожертвуйте суму
+                            яку ви вважаєте за потрібне.
                         </p>
                         <p class="add_info">
-                            By making a donation, you accept our <a href="./index.html"> privacy policy.</a>
+                            Здійснюючи пожертву, ви приймаєте нашу <a href="./index.html"> політику конфіденційності.</a>
                         </p>
                     </div>
 
@@ -509,17 +429,17 @@
                             <div class="accordion">
                                 <div class="accordion-item">
                                     <button id="accordion-button-1" aria-expanded="true"><span
-                                            class="accordion-title">Donate form</span><span class="icon"
+                                            class="accordion-title">Форма для пожертви</span><span class="icon"
                                             aria-hidden="true"></span></button>
                                     <div class="accordion-content">
                                         <div class="donate_form">
                                             <form>
                                                 <div class="form_sect">
                                                     <div class="group">
-                                                        <input type="text" required placeholder="Name">
+                                                        <input type="text" required placeholder="Ім'я">
                                                     </div>
                                                     <div class="group">
-                                                        <input type="text" required placeholder="Last name">
+                                                        <input type="text" required placeholder="Прізвище">
                                                     </div>
                                                 </div>
                                                 <div class="form_sect">
@@ -539,7 +459,7 @@
                                 </div>
                                 <div class="accordion-item">
                                     <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
+                                            class="accordion-title">Donate to DigitalUkraine by wire transfer in
                                             USD</span><span class="icon" aria-hidden="true"></span></button>
                                     <div class="accordion-content">
                                         <div class="req_items">
@@ -559,7 +479,7 @@
                                                 <b>
                                                     Account name:
                                                 </b>
-                                                digitalukraine UKRAINE. INC
+                                                DigitalUkraine UKRAINE. INC
                                             </p>
 
                                             <p>
@@ -570,153 +490,20 @@
                                             </p>
                                             <p>
                                                 <b>
-                                                    Name of the bank:
+                                                    Назва банку:
                                                 </b>
                                                 Bank of America, NA
                                             </p>
                                             <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
+                                                DigitalUkraine Ukraine INC exempt from federal income tax under IRC
                                                 Section
                                                 501 (c) (3)
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
-                                    <div class="accordion-content">
-                                        <div class="req_items">
-                                            <p>
-                                                <strong>
-                                                    Account Number:
-                                                </strong>
-                                                3810 4683 7192
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    ACH Routing Number:
-                                                </b>
-                                                021200339
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Account name:
-                                                </b>
-                                                digitalukraine UKRAINE. INC
-                                            </p>
-
-                                            <p>
-                                                <b>
-                                                    SWIFT:
-                                                </b>
-                                                BOFAUS3N
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Name of the bank:
-                                                </b>
-                                                Bank of America, NA
-                                            </p>
-                                            <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
-                                                501 (c) (3)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
-                                    <div class="accordion-content">
-                                        <div class="req_items">
-                                            <p>
-                                                <strong>
-                                                    Account Number:
-                                                </strong>
-                                                3810 4683 7192
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    ACH Routing Number:
-                                                </b>
-                                                021200339
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Account name:
-                                                </b>
-                                                digitalukraine UKRAINE. INC
-                                            </p>
-
-                                            <p>
-                                                <b>
-                                                    SWIFT:
-                                                </b>
-                                                BOFAUS3N
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Name of the bank:
-                                                </b>
-                                                Bank of America, NA
-                                            </p>
-                                            <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
-                                                501 (c) (3)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <button id="accordion-button-2" aria-expanded="false"><span
-                                            class="accordion-title">Donate to digitalukraine by wire transfer in
-                                            USD</span><span class="icon" aria-hidden="true"></span></button>
-                                    <div class="accordion-content">
-                                        <div class="req_items">
-                                            <p>
-                                                <strong>
-                                                    Account Number:
-                                                </strong>
-                                                3810 4683 7192
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    ACH Routing Number:
-                                                </b>
-                                                021200339
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Account name:
-                                                </b>
-                                                digitalukraine UKRAINE. INC
-                                            </p>
-
-                                            <p>
-                                                <b>
-                                                    SWIFT:
-                                                </b>
-                                                BOFAUS3N
-                                            </p>
-                                            <p>
-                                                <b>
-                                                    Name of the bank:
-                                                </b>
-                                                Bank of America, NA
-                                            </p>
-                                            <p>
-                                                digitalukraine Ukraine INC exempt from federal income tax under IRC
-                                                Section
-                                                501 (c) (3)
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                            
+                             
                             </div>
                         </div>
                     </div>
@@ -742,29 +529,29 @@
                 </div>
                 <div class="footer_sec">
                     <h1>
-                        Contact us if you have questions
+                        Зв'яжіться з нами, якщо у вас виникнуть запитання
                     </h1>
                     <ul class="social_links">
                         <li>
                             <p>
-                                General questions:
+                                Загальні питання:
                             </p>
                             <p>
-                                help@digitalukraine.com
+                                help@DigitalUkraine.com
                             </p>
                             <p>
-                                Pitch deck of digitalukraine
+                                Пітч-дека DigitalUkraine
                             </p>
                         </li>
                         <li>
                             <p>
-                                Work with us:
+                                Працюйте з нами:
                             </p>
                             <p>
-                                Join our team
+                                Приєднуйтесь до нашої команди
                             </p>
                             <p>
-                                2022 © digitalukraine Center 🇺🇦
+                                2023 © DigitalUkraine Center 🇺🇦
                             </p>
                         </li>
                     </ul>
@@ -772,6 +559,25 @@
             </div>
         </div>
     </footer>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        } 
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
