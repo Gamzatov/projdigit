@@ -289,7 +289,7 @@ section hr {
 .donate_wrapper {
   right: -90000px;
   position: fixed;
-  top: -70px;
+  top: 0px;
   max-width: 600px;
   width: 100%;
   height: 100vh;
